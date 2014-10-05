@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace Unity_Code
 {
-    class WhileLoop : ProgrammingPiece
+    class WhileLoop: IProgrammingPiece
     {
         private ArrayList LoopArray;
         private int numRepeats = 0;
 
         public WhileLoop()
         {
-            
+            LoopArray = new ArrayList();
+
         }
 
         public void setRepeats(int repeats)
@@ -23,22 +24,24 @@ namespace Unity_Code
 
         }
 
-        public void Execute()
+        public int Execute()
         {
 
             int i = 0;
             while(i < numRepeats)
             {
-                foreach(ProgrammingPiece curCommand in LoopArray)
+                foreach(IProgrammingPiece curCommand in LoopArray)
                 {
                     curCommand.Execute();
                 }
                 i++;
             }
 
+            return 0;
+
         }
 
-        public void addCommand(ProgrammingPiece thatPiece)
+        public void addCommand(IProgrammingPiece thatPiece)
         {
             LoopArray.Add(thatPiece);
         }

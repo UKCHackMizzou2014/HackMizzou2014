@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Unity_Code
 {
-    class number : ProgrammingPiece
+    class number : IProgrammingPiece
     {
         int Number ;
 

@@ -8,22 +8,22 @@ using System.Threading.Tasks;
 
 namespace Unity_Code
 {
-    class AddOperator : IProgrammingPiece
+    class SubtractOperator : IProgrammingPiece
     {
         private IProgrammingPiece left;
         private IProgrammingPiece right;
 
-        public AddOperator(IProgrammingPiece one, IProgrammingPiece two)
+        public SubtractOperator(IProgrammingPiece one, IProgrammingPiece two)
         {
             left = one;
             right = two;
-            
+
 
         }
 
         public int Execute()
         {
-            return right.Execute() + left.Execute();
+            return left.Execute() - right.Execute();
         }
     }
 }

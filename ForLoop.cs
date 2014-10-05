@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Unity_Code
 {
-    public class ForLoop : ProgrammingPiece
+    public class ForLoop : IProgrammingPiece
     {
         private int index;
         private int ceiling;
@@ -15,6 +15,7 @@ namespace Unity_Code
 
         public ForLoop(int index, int ceiling)
         {
+            loopArray = new ArrayList();
             this.index = index;
             this.ceiling = ceiling;
 
@@ -22,7 +23,7 @@ namespace Unity_Code
 
         }
 
-        public void addCommand(ProgrammingPiece addedcommand)
+        public void addCommand(IProgrammingPiece addedcommand)
         {
             loopArray.Add(addedcommand);
         }
@@ -30,9 +31,10 @@ namespace Unity_Code
         public int Execute()
         {
 
-            for (int i = index; i < ceiling; i++) ;
+
+            for (int i = index; i < ceiling; i++) 
             {
-                foreach (ProgrammingPiece curCommand in loopArray)
+                foreach (IProgrammingPiece curCommand in loopArray)
                 {
                     curCommand.Execute();
                 }
