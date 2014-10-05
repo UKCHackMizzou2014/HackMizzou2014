@@ -1,48 +1,62 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using AssemblyCSharp;
+using UnityEngine;
+using Unity_Code;
 
-namespace Unity_Code
-{
-    public class program
+
+public static class test : MonoBehaviour
     {
-        static void Main()
+		
+	public static Dictionary<char, number> VariableDict;
+
+	public bool AssignVariable(char assignment, int value)
+	{
+		switch (assignment)
+		{
+		case 'a':
+			if (VariableDict.ContainsKey('a')) VariableDict.Remove('a');
+			VariableDict.Add(assignment,value);
+			return true;
+		case 'b':
+			if (VariableDict.ContainsKey('b')) VariableDict.Remove('b');
+			VariableDict.Add(assignment,value);
+			return true;
+		case 'c':
+			if (VariableDict.ContainsKey('c')) VariableDict.Remove('c');
+			VariableDict.Add(assignment, value);
+			return true;
+		case 'd':
+			if (VariableDict.ContainsKey('d')) VariableDict.Remove('d');
+			VariableDict.Add(assignment, value);
+			return true;
+		case 'e':
+			if (VariableDict.ContainsKey('e')) VariableDict.Remove('e');
+			VariableDict.Add(assignment, value);
+			return true;
+		default:
+			return false;
+		}
+		
+	}
+	MainPiece main;
+	
+	void Start()
         {
-            Console.WriteLine("Beginning add test");
-            number a = new number(1);
-            number b = new number(5);
-            Console.WriteLine(a.Execute());
-            Console.WriteLine("+" + b.Execute());
-
-            number j = new number(3);
-            number k = new number(456);
-
-            SubtractOperator subtract = new SubtractOperator(a, b);
-            //Console.WriteLine(add.Execute());
-
-            AddOperator subTwo = new AddOperator(subtract,b);
-            Console.WriteLine(subtract.Execute());
-
-            Console.WriteLine("Press any key to start for loop testing... ");
-            Console.ReadKey();
-
-            number index = new number(0);
-            number ceiling = new number(10);
-            number manipulate = new number(0);
-            ForLoop forloop = new ForLoop(index.Execute(), ceiling.Execute());
-            forloop.addCommand(new AssignmentOperator(manipulate,new AddOperator(manipulate, new number(1))));
-            
-            
-            Console.WriteLine("Output of ForLoop = " + manipulate.Execute());
-
-            Console.ReadKey();
+		VariableDict = new Dictionary<char, number>;
+			main = new MainPiece();        
 
         }
+
+		void Update()
+		{
+
+		//listen for event and add it to the main
+		//if button is pressed run the code
+
+
+		}
     }
-}

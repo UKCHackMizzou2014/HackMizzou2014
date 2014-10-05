@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Unity_Code
 {
@@ -13,10 +11,10 @@ namespace Unity_Code
         private IProgrammingPiece left;
         private IProgrammingPiece right;
 
-        public SubtractOperator(IProgrammingPiece one, IProgrammingPiece two)
+        public SubtractOperator(IProgrammingPiece left, IProgrammingPiece right)
         {
-            left = one;
-            right = two;
+            this.left = left;
+            this.right = right;
 
 
         }
