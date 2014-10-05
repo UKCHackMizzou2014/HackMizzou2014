@@ -2,23 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using AssemblyCSharp;
 
 namespace Unity_Code
 {
     public class AssignmentOperator : IProgrammingPiece
     {
 
-        private IProgrammingPiece leftSide;
+        private number assignment;
+		private char key;
 
-        public AssignmentOperator(IProgrammingPiece assignee, IProgrammingPiece rightSide)
+        public AssignmentOperator(char key, IProgrammingPiece rightSide)
         {
-           // leftSide = new rightSide;
+			this.key = key;
+			assignment = new number(rightSide.Execute());
         }
 
         public int Execute()
         {
-            return 0;
-            //set
+			variablelist.VariableDict [key] =  assignment.Execute();
+
+			return 0;
         }
     }
 }

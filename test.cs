@@ -8,55 +8,81 @@ using UnityEngine;
 using Unity_Code;
 
 
-public static class test : MonoBehaviour
+public class test : MonoBehaviour
     {
-		
-	public static Dictionary<char, number> VariableDict;
+
+	MainPiece main;
+	
+	void Start()
+        {
+
+			main = new MainPiece();    
+			
+
+		variablelist.VariableDict.Add ('a', new number(0));
+
+		AssignmentOperator thisaction = new AssignmentOperator(VariableDict['a'], new AddOperator(new number(6),new number(5)));
+
+
+		main.addCode (thisaction);
+		this.Run();
+
+
+        }
+
+	void Update()
+	{
+
+		//listen for event and add it to the main
+		//if button is pressed run the code
+
+
+	}
+
+
+	void Run()
+	{
+		main.Execute();
+
+		foreach(KeyValuePair<char, number> value in VariableDict)
+		{
+			//todo: modify to be done however most things are handled!
+			Debug.Log("Variable " + value.Key + ": " + value.Value.Execute());
+
+		}
+	}
 
 	public bool AssignVariable(char assignment, int value)
 	{
 		switch (assignment)
 		{
 		case 'a':
-			if (VariableDict.ContainsKey('a')) VariableDict.Remove('a');
-			VariableDict.Add(assignment,value);
+			if (variablelist.VariableDict.ContainsKey('a')) variablelist.VariableDict.Remove('a');
+			variablelist.VariableDict.Add(assignment,new number(value));
 			return true;
 		case 'b':
-			if (VariableDict.ContainsKey('b')) VariableDict.Remove('b');
-			VariableDict.Add(assignment,value);
+			if (variablelist.VariableDict.ContainsKey('b')) variablelist.VariableDict.Remove('b');
+			variablelist.VariableDict.Add(assignment,new number(value));
 			return true;
 		case 'c':
-			if (VariableDict.ContainsKey('c')) VariableDict.Remove('c');
-			VariableDict.Add(assignment, value);
+			if (variablelist.VariableDict.ContainsKey('c')) variablelist.VariableDict.Remove('c');
+			variablelist.VariableDict.Add(assignment,new number(value));
 			return true;
 		case 'd':
-			if (VariableDict.ContainsKey('d')) VariableDict.Remove('d');
-			VariableDict.Add(assignment, value);
+			if (variablelist.VariableDict.ContainsKey('d')) variablelist.VariableDict.Remove('d');
+			variablelist.VariableDict.Add(assignment,new number(value));
 			return true;
 		case 'e':
-			if (VariableDict.ContainsKey('e')) VariableDict.Remove('e');
-			VariableDict.Add(assignment, value);
+			if (variablelist.VariableDict.ContainsKey('e')) variablelist.VariableDict.Remove('e');
+			variablelist.VariableDict.Add(assignment,new number(value));
 			return true;
 		default:
 			return false;
 		}
 		
 	}
-	MainPiece main;
-	
-	void Start()
-        {
-		VariableDict = new Dictionary<char, number>;
-			main = new MainPiece();        
-
-        }
-
-		void Update()
-		{
-
-		//listen for event and add it to the main
-		//if button is pressed run the code
 
 
-		}
-    }
+
+
+ }

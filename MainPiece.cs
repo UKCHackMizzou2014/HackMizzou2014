@@ -16,11 +16,11 @@ using Unity_Code;
 
 namespace AssemblyCSharp
 {
-	public class MainPiece : IProgrammingPiece
+	public class MainPiece
 	{
 
-		private ArrayList CodeHeap;
-		Dictionary<char, number> VariableDict;
+		public ArrayList CodeHeap;
+
 
 		
 		public MainPiece()
@@ -47,39 +47,11 @@ namespace AssemblyCSharp
 			{
 				command.Execute();
 			}
+			return 0;
 		}
 
 
-		public bool AssignVariable(char assignment, int value)
-		{
-			switch (assignment)
-			{
-			case 'a':
-				if (VariableDict.ContainsKey('a')) VariableDict.Remove('a');
-				VariableDict.Add(assignment,value);
-				return true;
-			case 'b':
-				if (VariableDict.ContainsKey('b')) VariableDict.Remove('b');
-				VariableDict.Add(assignment,value);
-				return true;
-			case 'c':
-				if (VariableDict.ContainsKey('c')) VariableDict.Remove('c');
-				VariableDict.Add(assignment, value);
-				return true;
-			case 'd':
-				if (VariableDict.ContainsKey('d')) VariableDict.Remove('d');
-				VariableDict.Add(assignment, value);
-				return true;
-			case 'e':
-				if (VariableDict.ContainsKey('e')) VariableDict.Remove('e');
-				VariableDict.Add(assignment, value);
-				return true;
-			default:
-				return false;
-			}
-			
-		}
-		
+
 		
 		
 		
